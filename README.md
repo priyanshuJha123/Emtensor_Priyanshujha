@@ -3,42 +3,17 @@ This project implements a brain MRI segmentation and anomaly detection pipeline.
 
 Features
 
-✅ Preprocessing: Loads and normalizes NIfTI brain scans.✅ Data Augmentation: Applies affine transformations (rotation & translation).✅ Segmentation Model: Uses a 3D U-Net for multi-class segmentation.✅ Anomaly Detection: Attention-based mechanism for detecting anomalies.✅ Inference: Monte Carlo Dropout for uncertainty estimation.✅ Visualization: Heatmaps and 3D slice visualization.
+✅ Preprocessing: Loads and normalizes NIfTI brain scans.
+✅ Data Augmentation: Applies affine transformations (rotation & translation).
+✅ Segmentation Model: Uses a 3D U-Net for multi-class segmentation.
+✅ Anomaly Detection: Attention-based mechanism for detecting anomalies.
+✅ Inference: Monte Carlo Dropout for uncertainty estimation.
+✅ Visualization: Heatmaps and 3D slice visualization.
 
-Installation
 
-Clone the repository and install dependencies:
-
-# Clone the repository
-git clone https://github.com/yourusername/brain-mri-segmentation.git
-cd brain-mri-segmentation
 
 # Install dependencies
 pip install -r requirements.txt
-
-Project Structure
-
-brain-mri-segmentation/
-│── data_pipeline/
-│   ├── preprocess.py        # Preprocesses NIfTI brain scans
-│   ├── augmentation.py      # Applies affine transformations
-│
-│── model/
-│   ├── segmentation_model.py  # 3D U-Net for segmentation
-│   ├── anomaly_detection.py   # Attention-based anomaly detection
-│
-│── inference/
-│   ├── inference.py         # Runs inference with uncertainty estimation
-│
-│── analysis/
-│   ├── sacode.py            # Statistical analysis (t-tests, ANOVA)
-│   ├── visualize.py         # Heatmap and 3D visualization
-│
-│── main.py                  # Main pipeline script
-│── requirements.txt          # Required dependencies
-│── README.md                 # Project documentation
-
-Usage
 
 Run the entire pipeline with:
 
