@@ -1,101 +1,110 @@
 # Emtensor_Priyanshujha
-Project Overview
-This project implements a pipeline for brain MRI segmentation and anomaly detection. It processes neuroimaging data, applies data augmentation, trains a segmentation model, performs inference, and visualizes results. The segmentation model is based on a 3D U-Net, and the anomaly detection module utilizes attention mechanisms.
+This project implements a brain MRI segmentation and anomaly detection pipeline. It processes neuroimaging data, applies data augmentation, trains a 3D U-Net segmentation model, performs inference, and visualizes results. The anomaly detection module utilizes attention mechanisms for improved analysis.
 
-Directory Structure & File Descriptions
-1. Preprocessing
-preprocess.py
+Features
 
-Loads and processes NIfTI brain scans.
+✅ Preprocessing: Loads and normalizes NIfTI brain scans.✅ Data Augmentation: Applies affine transformations (rotation & translation).✅ Segmentation Model: Uses a 3D U-Net for multi-class segmentation.✅ Anomaly Detection: Attention-based mechanism for detecting anomalies.✅ Inference: Monte Carlo Dropout for uncertainty estimation.✅ Visualization: Heatmaps and 3D slice visualization.
+
+Installation
+
+Clone the repository and install dependencies:
+
+# Clone the repository
+git clone https://github.com/yourusername/brain-mri-segmentation.git
+cd brain-mri-segmentation
+
+# Install dependencies
+pip install -r requirements.txt
+
+Project Structure
+
+brain-mri-segmentation/
+│── data_pipeline/
+│   ├── preprocess.py        # Preprocesses NIfTI brain scans
+│   ├── augmentation.py      # Applies affine transformations
+│
+│── model/
+│   ├── segmentation_model.py  # 3D U-Net for segmentation
+│   ├── anomaly_detection.py   # Attention-based anomaly detection
+│
+│── inference/
+│   ├── inference.py         # Runs inference with uncertainty estimation
+│
+│── analysis/
+│   ├── sacode.py            # Statistical analysis (t-tests, ANOVA)
+│   ├── visualize.py         # Heatmap and 3D visualization
+│
+│── main.py                  # Main pipeline script
+│── requirements.txt          # Required dependencies
+│── README.md                 # Project documentation
+
+Usage
+
+Run the entire pipeline with:
+
+python main.py
+
+This will:
+
+Preprocess the brain MRI scan.
+
+Apply data augmentation.
+
+Run segmentation using a 3D U-Net.
+
+Perform anomaly detection.
+
+Estimate uncertainty using Monte Carlo Dropout.
+
+Conduct statistical analysis (t-tests, ANOVA).
+
+Generate heatmaps and 3D visualizations.
+
+File Descriptions
+
+1. Preprocessing (preprocess.py)
+
+Loads NIfTI brain scans (.nii files).
 
 Normalizes intensity values to [0, 1].
 
-Pads images to dimensions that are multiples of 16.
+Pads images to the nearest multiple of 16.
 
-2. Data Augmentation
-augmentation.py
+2. Data Augmentation (augmentation.py)
 
-Applies random affine transformations (rotation and translation) to MRI images.
+Applies random affine transformations (rotation & translation).
 
-3. Segmentation Model
-segmentation_model.py
+3. Segmentation Model (segmentation_model.py)
 
-Defines a 3D U-Net model for multi-class brain tissue segmentation (e.g., gray matter, white matter, ventricles, hippocampus).
+Defines a 3D U-Net model for multi-class brain tissue segmentation:
 
-4. Anomaly Detection
-anomaly_detection.py
+Gray Matter, White Matter, Ventricles, Hippocampus
 
-Implements an attention-based anomaly detection module that applies spatial attention using 3D convolutions.
+4. Anomaly Detection (anomaly_detection.py)
 
-5. Inference
-inference.py
+Uses attention gates with 3D convolutions for detecting anomalies.
 
-Runs inference using the segmentation model.
+5. Inference & Uncertainty Estimation (inference.py)
 
-Supports Monte Carlo Dropout for uncertainty estimation.
+Runs segmentation inference.
 
-6. Statistical Analysis
-sacode.py
+Uses Monte Carlo Dropout to estimate uncertainty.
 
-Performs t-tests and ANOVA for statistical comparison of segmented results.
+6. Statistical Analysis (sacode.py)
 
-7. Visualization
-visualize.py
+Performs t-tests and ANOVA for segmentation analysis.
 
-Generates heatmaps and 3D slices of segmentation outputs.
+7. Visualization (visualize.py)
 
-8. Main Pipeline
-main.py
+Generates heatmaps of segmentation results.
 
-Integrates preprocessing, augmentation, segmentation, inference, statistical analysis, and visualization.
+Plots 3D slice views of MRI scans.
 
-Pipeline Execution
-Preprocessing
+Example Output
 
-Load a NIfTI brain scan (.nii file).
+Segmentation Heatmap
 
-Normalize intensities and pad the image.
 
-Augmentation
 
-Apply affine transformations to generate varied data.
+3D MRI Slices
 
-Segmentation
-
-Load the 3D U-Net model and segment brain structures.
-
-Anomaly Detection
-
-Apply attention mechanisms to highlight anomalies.
-
-Inference & Uncertainty Estimation
-
-Predict segmentation output.
-
-Perform Monte Carlo Dropout for uncertainty quantification.
-
-Statistical Analysis
-
-Perform t-tests and ANOVA on segmented structures.
-
-Visualization
-
-Generate heatmaps and 3D slice views.
-
-Usage
-bash
-Copy
-Edit
-python main.py
-This runs the entire pipeline from preprocessing to visualization.
-
-Summary
-The project segments brain structures using a 3D U-Net.
-
-It applies attention-based anomaly detection.
-
-Supports uncertainty estimation via Monte Carlo Dropout.
-
-Outputs statistical analysis and heatmaps of the segmentation results.
-
-Let me know if you need modifications or additional details!
